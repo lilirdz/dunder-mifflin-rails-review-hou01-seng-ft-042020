@@ -1,0 +1,27 @@
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%> 
+        <%=e%>
+    <%end%>
+<%end%>
+
+<%=form_with model: @employee, method: :post do |f|%> 
+<%=f.label :first_name%>
+<%=f.text_field :first_name%>
+<br/>
+<%=f.label :last_name%>
+<%=f.text_field :last_name%>
+<br/>
+<%=f.label :alias%>
+<%=f.text_field :alias%>
+<br/>
+<%=f.label :title%>
+<%=f.text_field :title%>
+<br>
+<%=f.label :office%>
+<%=f.text_field :office%>
+<br/>
+
+<%=f.collection_select :dog_id, @dogs, :id, :name%>
+<br>
+<%=f.submit%>
+<%end%>
